@@ -1,0 +1,60 @@
+@use 'uswds-core' as *;
+// @use "colors";
+
+pre {
+    white-space: pre-wrap;
+}
+
+.site-header {
+    max-width:none;
+    &.site-header--dark {
+        background-color: color('base-darkest');
+        .usa-logo a {
+            color: color('primary-lighter');
+        }
+    }
+}
+
+// .site-nav {
+//     background-color: color("white");
+//     border-bottom: units($site-border-width) solid
+//     color($site-base-transparent-light);
+//     padding-left: units(2);
+  
+//     @include at-media("desktop") {
+//       float: none;
+//       height: units($height-nav-secondary);
+//       z-index: z-index($z-nav-secondary);
+//     }
+// }
+
+@media (min-width: 64em) {
+    .sticky {
+        z-index: 200;
+        position: sticky;
+        top: 0;
+        float: none;
+        height: 3rem;
+    }
+    .site-header {
+        border-bottom: none;
+    }
+    .site-nav {
+        font-size: 1rem;
+        line-height: 1.6;
+        background-color: #fff;
+        border-bottom: 2px solid rgba(0,0,0,.1);
+        padding-left: 1rem;
+        .usa-accordion {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    }
+    .usa-logo {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .usa-nav-container {
+        max-width: none;
+    }
+}
