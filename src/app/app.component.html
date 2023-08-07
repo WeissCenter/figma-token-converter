@@ -51,45 +51,48 @@
     </div>
   </section>
   <section class="usa-section margin-0">
-      <div class="grid-container" id="before-getting-started">
-        <h2 class="margin-y-0 border-top-1px border-base-light padding-top-05 usa-heading">Before getting started
-        </h2>
-        <h3 id="prepping-for-the-token-converter" class="usa-heading text-light margin-top-0 margin-bottom-4">
-          Prepare yourself for the road ahead
-        </h3>
-        <div class="grid-row grid-gap-2 flex-align-stretch">
-          <div class="tablet:grid-col display-flex flex-align-stretch">
-            <div class="padding-2 bg-white border-1px border-base-lighter">
-              <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="customize-info" class="usa-anchor"></a>Customize
-              </h3>
-              <p class="margin-y-0">Get started by downloading our <a class="usa-link"
-                  href="../assets/figma-uswds-tokens.json" title="Download tokens"
-                  download="Figma USWDS Tokens.JSON">Figma USWDS
-                  local variables</a> and then using Figma to get them just right.</p>
-            </div>
+    <div class="grid-container" id="before-getting-started">
+      <h2 class="margin-y-0 border-top-1px border-base-light padding-top-05 usa-heading">Before getting started
+      </h2>
+      <h3 id="prepping-for-the-token-converter" class="usa-heading text-light margin-top-0 margin-bottom-4">
+        Prepare yourself for the road ahead
+      </h3>
+      <div class="grid-row grid-gap-2 flex-align-stretch">
+        <div class="tablet:grid-col display-flex flex-align-stretch">
+          <div class="padding-2 bg-white border-1px border-base-lighter">
+            <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="customize-info"
+                class="usa-anchor"></a>Customize
+            </h3>
+            <p class="margin-y-0">Get started by downloading our <a class="usa-link"
+                href="../assets/figma-uswds-tokens.json" title="Download tokens"
+                download="Figma USWDS Tokens.JSON">Figma USWDS
+                local variables</a> and then using Figma to get them just right.</p>
           </div>
-          <div class="tablet:grid-col display-flex flex-align-stretch">
-            <div class="padding-2 bg-white border-1px border-base-lighter">
-              <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="extract-info" class="usa-anchor"></a>Extract
-              </h3>
-              <p class="margin-y-0">We recommend the <a class="usa-link usa-link--external" rel="noreferrer"
-                  href="https://www.figma.com/community/plugin/1256972111705530093/Export/Import-Variables/Export%2FImport-Variables">Export/Import
-                  Variables</a> plugin from the Figma Community for producing your JSON object.
-  
-              </p>
-            </div>
+        </div>
+        <div class="tablet:grid-col display-flex flex-align-stretch">
+          <div class="padding-2 bg-white border-1px border-base-lighter">
+            <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="extract-info"
+                class="usa-anchor"></a>Extract
+            </h3>
+            <p class="margin-y-0">We recommend the <a class="usa-link usa-link--external" rel="noreferrer"
+                href="https://www.figma.com/community/plugin/1256972111705530093/Export/Import-Variables/Export%2FImport-Variables">Export/Import
+                Variables</a> plugin from the Figma Community for producing your JSON object.
+
+            </p>
           </div>
-          <div class="tablet:grid-col display-flex flex-align-stretch">
-            <div class="padding-2 bg-white border-1px border-base-lighter">
-              <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="convert-info" class="usa-anchor"></a>Project prep
-              </h3>
-              <p class="margin-y-0">Follow our <a class="usa-link" href="#setting-up-uswds">USWDS
-                  implementation</a> steps and processes to get your project ready to include your generated SCSS file.
-              </p>
-            </div>
+        </div>
+        <div class="tablet:grid-col display-flex flex-align-stretch">
+          <div class="padding-2 bg-white border-1px border-base-lighter">
+            <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="convert-info"
+                class="usa-anchor"></a>Project prep
+            </h3>
+            <p class="margin-y-0">Follow our <a class="usa-link" href="#setting-up-uswds">USWDS
+                implementation</a> steps and processes to get your project ready to include your generated SCSS file.
+            </p>
           </div>
         </div>
       </div>
+    </div>
   </section>
   <section class="usa-section margin-0">
     <div class="grid-container" id="token-converter">
@@ -100,7 +103,7 @@
         <form class="tablet:grid-col-6" [formGroup]="token_form" (ngSubmit)="convertTokenData()">
           <div class="grid-col">
             <label class="usa-label" for="token-import-data">Figma local variables input</label><textarea
-              class="usa-textarea width-full maxw-none" required
+              class="usa-textarea width-full margin-top-1 maxw-none" required
               [ngClass]="{'usa-input--error': token_form.touched && !token_form.valid}" id="token-import-data"
               formControlName="token_import_data" placeholder="Figma variables here..."></textarea>
             <div class="grid-row margin-top-1 grid-gap">
@@ -110,12 +113,15 @@
                 </button>
               </div>
               <div class="flex-fill">
-                <div class="usa-alert border-top-1px border-right-1px border-bottom-1px usa-alert--slim usa-alert--no-icon"
+                <div
+                  class="usa-alert border-top-1px border-right-1px border-bottom-1px usa-alert--slim usa-alert--no-icon"
                   *ngIf="token_form.value.token_import_data !== ''"
-                  [ngClass]="{'usa-alert--error border-red': token_form.get('token_import_data')?.hasError('invalidObject'), 'usa-alert--warning border-gold': token_form.get('token_import_data')?.hasError('invalidFormat'), 'usa-alert--success border-green': token_form.valid}">
+                  [ngClass]="{'usa-alert--error border-red': token_form.get('token_import_data')?.hasError('invalidObject') || token_form.get('token_import_data')?.hasError('invalidArray'), 'usa-alert--warning border-gold': token_form.get('token_import_data')?.hasError('invalidFormat'), 'usa-alert--success border-green': token_form.valid}">
                   <div class="usa-alert__body">
                     <p class="usa-alert__text" *ngIf="token_form.get('token_import_data')?.hasError('invalidObject')">
-                      Not a valid Object.</p>
+                      Input must in JSON format.</p>
+                    <p class="usa-alert__text" *ngIf="token_form.get('token_import_data')?.hasError('invalidArray')">
+                      Not a valid JSON array.</p>
                     <p class="usa-alert__text" *ngIf="token_form.get('token_import_data')?.hasError('invalidFormat')">
                       Not in Figma export format.</p>
                     <p class="usa-alert__text" *ngIf="token_form.valid">Good to go!</p>
@@ -126,23 +132,30 @@
           </div>
         </form>
         <div class="tablet:grid-col-6">
-          <label class="usa-label" for="scss-output">SCSS output</label>
-          <pre id="scss-output" class="padding-2 margin-y-1 bg-base-darkest text-primary-lighter font-mono-sm text-light border-1px border-black"
-            aria-roledescription="SCSS output">{{exported_data.data | removeLeadingSpaces}}</pre>
-          <div class="grid-row grid-gap">
-            <div class="flex-fill">
-              <button type="button" [disabled]="!token_form.valid || !exported_data.data || !exported_data.file_name"
-                (click)="downloadFile('scss')" class="usa-button usa-button--accent-warm margin-0"
-                aria-label="Download generated SCSS file.">
-                Download SCSS file
-              </button>
-            </div>
-            <div class="flex-auto">
-              <button [disabled]="!token_form.valid || !exported_data.data || !exported_data.file_name"
-                (click)="copyToClipboard(exported_data.data)" class="usa-button usa-button--outline margin-0 width-auto"
-                type="button" aria-label="Copy SCSS output string."><span aria-hidden="true">Copy String</span></button>
+          <h3 class="margin-bottom-1 margin-top-2">SCSS Output</h3>
+          <div class="grid-col" [ngClass]="{'margin-top-2': !first}" *ngFor="let output of _converted_data; first as first">
+            <label class="usa-label margin-top-1 margin-bottom-1 text-italic" *ngIf="output.file_name !== 'SCSS Output'" for="scss-output">{{output.file_name}}</label>
+            <pre id="scss-output"
+              class="padding-2 margin-bottom-1 margin-top-0 bg-base-darkest text-primary-lighter font-mono-sm text-light border-1px border-black"
+              aria-roledescription="SCSS output">{{output.string_value | removeLeadingSpaces}}</pre>
+            <div class="grid-row grid-gap">
+              <div class="flex-fill">
+                <button type="button" [disabled]="output.file_name === 'SCSS Output'"
+                  (click)="downloadFile(output)" class="usa-button usa-button--accent-warm margin-0"
+                  aria-label="Download generated SCSS file.">
+                  Download SCSS file
+                </button>
+              </div>
+              <div class="flex-auto">
+                <button [disabled]="output.file_name === 'SCSS Output'"
+                  (click)="copyToClipboard(output.string_value)"
+                  class="usa-button usa-button--outline margin-0 width-auto" type="button"
+                  aria-label="Copy SCSS output string."><span aria-hidden="true">Copy String</span></button>
+              </div>
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
@@ -158,7 +171,7 @@
         <div class="tablet:grid-col-6">
           <div class="usa-accordion margin-top-2">
             <h3 class="usa-accordion__heading border-1px border-base-lighter">
-              <button type="button" class="usa-accordion__button bg-white" aria-expanded="false"
+              <button type="button" class="usa-accordion__button bg-white" aria-expanded="true"
                 aria-controls="figma-token-example" aria-label="Expand Figma token example content.">
                 Figma token export example
               </button>
@@ -184,12 +197,13 @@
         <div class="tablet:grid-col-6">
           <div class="usa-accordion margin-top-2">
             <h3 class="usa-accordion__heading border-1px border-base-lighter">
-              <button type="button" class="usa-accordion__button bg-white" aria-expanded="false"
+              <button type="button" class="usa-accordion__button bg-white" aria-expanded="true"
                 aria-controls="scss-export-example" aria-label="Expand SCSS export example content.">
                 Custom SCSS export example
               </button>
             </h3>
-            <div id="scss-export-example" class="usa-accordion__content usa-prose border-1px border-base-lighter border-top-0">
+            <div id="scss-export-example"
+              class="usa-accordion__content usa-prose border-1px border-base-lighter border-top-0">
               <div class="grid-row flex-wrap tablet:grid-col flex-align-end">
                 <div class="flex-fill padding-right-2 flex-s">
                   <p class="margin-0">

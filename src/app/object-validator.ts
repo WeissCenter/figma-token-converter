@@ -1,26 +1,27 @@
 import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 
 export function validObjectValidator(): ValidatorFn {
-  return (control: AbstractControl): Promise<ValidationErrors | null> => {
+  return (control: AbstractControl): ValidationErrors | null => {
     const textareaValue = control.value;
     if (textareaValue === null || textareaValue === '') {
-      return Promise.resolve(null); // Return resolved Promise if the control is empty (optional)
+      return null; // Return null if the control is empty (optional)
     }
 
     try {
       const parsedObject = JSON.parse(textareaValue.replace(/'/g, '"'));
-      if (typeof parsedObject === 'object' && parsedObject !== null) {
-        // Check if the object contains keys "fileName" and "body"
-        if ('fileName' in parsedObject && 'body' in parsedObject) {
-          return Promise.resolve(null); // Validation passed
-        } else {
-          return Promise.resolve({ invalidFormat: true }); // Validation failed due to missing "fileName" or "body"
+      if (Array.isArray(parsedObject)) {
+        // Check if the array contains valid objects with "fileName" and "body" keys
+        for (const obj of parsedObject) {
+          if (!('fileName' in obj && 'body' in obj)) {
+            return { invalidFormat: true }; // Validation failed due to missing "fileName" or "body"
+          }
         }
+        return null; // Validation passed
       } else {
-        return Promise.resolve({ invalidObject: true }); // Validation failed due to not being a valid object
+        return { invalidFormat: true }; // Validation failed due to not being a valid JSON array
       }
     } catch (error) {
-      return Promise.resolve({ invalidObject: true }); // Validation failed due to invalid JSON format
+      return { invalidFormat: true }; // Validation failed due to invalid JSON format
     }
   };
 }

@@ -1,4 +1,4 @@
-{
+[{
     "fileName": "uswds-colors-theme.light.tokens.json",
     "body": {
       "Components": {
@@ -1050,4 +1050,4 @@
         }
       }
     }
-  }
+  }]

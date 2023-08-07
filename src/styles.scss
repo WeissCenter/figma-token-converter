@@ -1,9 +1,5 @@
 
 @forward "uswds-core" with (
-  $theme-grid-container-max-width: "desktop",
-  $theme-site-margins-breakpoint: "desktop",
-  $theme-site-margins-width: 4,
-  $theme-site-margins-mobile-width: 2,
-  $theme-show-notifications: false
+    $theme-image-path: "assets/img/",
 );
 // @forward "uswds";

@@ -51,6 +51,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
+                "./node_modules/@uswds/uswds",
                 "./node_modules/@uswds/uswds/packages",
                 "./node_modules/@uswds/uswds/src",
                 "src"
