@@ -481,7 +481,7 @@
       },
       "focus-width": {
         "$type": "number",
-        "$value": "{05}"
+        "$value": 0.5
       }
     }
   },

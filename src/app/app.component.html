@@ -30,7 +30,7 @@
   </div>
 </nav>
 <main id="main-content" class="main-content bg-base-lightest usa-prose">
-  <section class="usa-section margin-0 bg-primary-darker text-base-lightest">
+  <section class="usa-section margin-0 usa-section--dark text-base-lightest">
     <div class="grid-container">
       <div class="grid-row grid-gap flex-align-center">
         <div class="tablet:grid-col-4">
@@ -55,7 +55,7 @@
       <h2 class="margin-y-0 border-top-1px border-base-light padding-top-05 usa-heading">Before getting started
       </h2>
       <h3 id="prepping-for-the-token-converter" class="usa-heading text-light margin-top-0 margin-bottom-4">
-        Prepare yourself for the road ahead
+        Prepare yourself for the road ahead.
       </h3>
       <div class="grid-row grid-gap-2 flex-align-stretch">
         <div class="tablet:grid-col display-flex flex-align-stretch">
@@ -74,7 +74,7 @@
             <h3 class="text-accent-cool-darker margin-top-0 margin-bottom-1"><a id="extract-info"
                 class="usa-anchor"></a>Extract
             </h3>
-            <p class="margin-y-0">We recommend the <a class="usa-link usa-link--external" rel="noreferrer"
+            <p class="margin-y-0">We recommend the <a class="usa-link" target="_blank" rel="noreferrer"
                 href="https://www.figma.com/community/plugin/1256972111705530093/Export/Import-Variables/Export%2FImport-Variables">Export/Import
                 Variables</a> plugin from the Figma Community for producing your JSON object.
 
@@ -133,22 +133,22 @@
         </form>
         <div class="tablet:grid-col-6">
           <h3 class="margin-bottom-1 margin-top-2">SCSS Output</h3>
-          <div class="grid-col" [ngClass]="{'margin-top-2': !first}" *ngFor="let output of _converted_data; first as first">
-            <label class="usa-label margin-top-1 margin-bottom-1 text-italic" *ngIf="output.file_name !== 'SCSS Output'" for="scss-output">{{output.file_name}}</label>
+          <div class="grid-col" [ngClass]="{'margin-top-2': !first}"
+            *ngFor="let output of _converted_data; first as first">
+            <label class="usa-label margin-top-1 margin-bottom-1 text-italic" *ngIf="output.file_name !== 'SCSS Output'"
+              for="scss-output">{{output.file_name}}</label>
             <pre id="scss-output"
               class="padding-2 margin-bottom-1 margin-top-0 bg-base-darkest text-primary-lighter font-mono-sm text-light border-1px border-black"
               aria-roledescription="SCSS output">{{output.string_value | removeLeadingSpaces}}</pre>
             <div class="grid-row grid-gap">
               <div class="flex-fill">
-                <button type="button" [disabled]="output.file_name === 'SCSS Output'"
-                  (click)="downloadFile(output)" class="usa-button usa-button--accent-warm margin-0"
-                  aria-label="Download generated SCSS file.">
+                <button type="button" [disabled]="output.file_name === 'SCSS Output'" (click)="downloadFile(output)"
+                  class="usa-button usa-button--accent-warm margin-0" aria-label="Download generated SCSS file.">
                   Download SCSS file
                 </button>
               </div>
               <div class="flex-auto">
-                <button [disabled]="output.file_name === 'SCSS Output'"
-                  (click)="copyToClipboard(output.string_value)"
+                <button [disabled]="output.file_name === 'SCSS Output'" (click)="copyToClipboard(output.string_value)"
                   class="usa-button usa-button--outline margin-0 width-auto" type="button"
                   aria-label="Copy SCSS output string."><span aria-hidden="true">Copy String</span></button>
               </div>
@@ -162,16 +162,50 @@
   </section>
   <section class="usa-section margin-0">
     <div class="grid-container grid-gap">
-      <h2 id="setting-up-uswds" class="margin-y-0 border-top-1px border-base-light padding-top-05 usa-heading">
+      <h2 id="setting-up-uswds"
+        class="margin-y-0 border-top-1px border-base-light padding-top-2 font-body-xl usa-heading">
         Setting up USWDS</h2>
-      <h3 id="using-your-generated-scss" class="usa-heading text-light margin-y-0">
-        Using your generated SCSS to customize USWDS
-      </h3>
+      <p id="using-your-generated-scss" class="font-alt-lg text-light margin-bottom-0 margin-top-1">
+        Using your generated SCSS to customize USWDS.
+      </p>
+      <h3 class="usa-heading margin-bottom-1 text-normal">Step 1 - Implementation</h3>
+      <p class="margin-y-0">Follow the steps listed out on the <a target="_blank" rel="noreferrer"
+          href="https://designsystem.digital.gov/documentation/getting-started-for-developers/">Getting Started for
+          Developers</a> page to get USWDS set up and implemented in your project's environment.</p>
+      <section class="margin-top-3 border-2px border-gold bg-yellow padding-1 maxw-tablet">
+        <h4 id="angular-implementation-implement" class="margin-y-0 text-bold">Note for Angular implementation</h4>
+        <p class="margin-top-2">Projects leveraging <a target="_blank" rel="noreferrer" class="usa-link" href="https://angular.io">Angular</a> can implement and compile USWDS without needing to
+          leverage <a target="_blank" rel="noreferrer" class="usa-link" href="https://github.com/uswds/uswds-compile">USWDS Compile</a>. Follow these steps to properly implement USWDS in your Angular environment.</p>
+        <p class="margin-bottom-0">First, install the <span class="font-mono-md bg-base-lighter">@uswds/uswds</span>
+          package.</p>
+        <pre aria-roledescription="Angular install command"
+          class="padding-x-2 padding-y-1 margin-top-1 font-mono-sm font-weight-normal bg-base-darkest text-primary-lighter width-auto text-pre-wrap border-1px border-black">{{angular_example.install}}</pre>
+
+        <p class="margin-bottom-0">Now, check your project's <span class="font-mono-md bg-base-lighter">package.json</span>
+          file, you should find references for <span class="font-mono-md bg-base-lighter">@uswds/uswds</span> like so:
+        </p>
+        <pre aria-roledescription="Angular package JSON config"
+          class="padding-x-2 padding-y-1 margin-top-1 font-mono-sm font-weight-normal bg-base-darkest text-primary-lighter width-auto text-pre-wrap border-1px border-black">{{angular_example.packageJSON}}</pre>
+          <p class="margin-bottom-0">Next, head over to your <span class="font-mono-md bg-base-lighter">angular.json</span>
+            file where you'll need to make the following updates:
+          </p>
+          <pre aria-roledescription="Angular.JSON config"
+            class="padding-x-2 padding-y-1 margin-top-1 font-mono-sm font-weight-normal bg-base-darkest text-primary-lighter width-auto text-pre-wrap border-1px border-black">{{angular_example.angularJSON}}</pre>
+      </section>
+      <h3 class="usa-heading margin-bottom-1 text-normal">Step 2 - Customization</h3>
+      <p class="margin-y-0">Now you're ready to implement your <a class="usa-link" href="#token-converter">generated SCSS file</a> into your project.</p>
+      <p>Follow <a href="https://designsystem.digital.gov/documentation/getting-started/developers/phase-two-compile/" target="_blank" rel="noreferrer">USWDS's offical steps</a> to inject your generated SCSS into your project.</p>
+      <section class="margin-top-3 border-2px border-gold bg-yellow padding-1 maxw-tablet">
+        <h4 id="angular-implementation-compile" class="margin-y-0 text-bold">Note for Angular compiling</h4>
+        <p class="margin-top-2 margin-bottom-0">If you set up your Angular project following the <a class="usa-link" href="#angular-implementation-implement">previously described pattern</a>, you'll need to be sure to include the <span class="font-mono-md bg-base-lighter">$theme-image-path</span> and <span class="font-mono-md bg-base-lighter">$theme-font-path</span> tokens with the following values:</p>
+        <pre aria-roledescription="Angular SCSS path config"
+          class="padding-x-2 padding-y-1 margin-top-1 font-mono-sm font-weight-normal bg-base-darkest text-primary-lighter width-auto text-pre-wrap border-1px border-black">{{angular_example.paths}}</pre>
+      </section>
       <div class="grid-row padding-bottom-6 grid-gap-2">
         <div class="tablet:grid-col-6">
           <div class="usa-accordion margin-top-2">
             <h3 class="usa-accordion__heading border-1px border-base-lighter">
-              <button type="button" class="usa-accordion__button bg-base-lightest" aria-expanded="true"
+              <button type="button" class="usa-accordion__button bg-white" aria-expanded="true"
                 aria-controls="figma-token-example" aria-label="Expand Figma token example content.">
                 Figma token export example
               </button>
@@ -197,7 +231,7 @@
         <div class="tablet:grid-col-6">
           <div class="usa-accordion margin-top-2">
             <h3 class="usa-accordion__heading border-1px border-base-lighter">
-              <button type="button" class="usa-accordion__button bg-base-lightest" aria-expanded="true"
+              <button type="button" class="usa-accordion__button bg-white" aria-expanded="true"
                 aria-controls="scss-export-example" aria-label="Expand SCSS export example content.">
                 Custom SCSS export example
               </button>

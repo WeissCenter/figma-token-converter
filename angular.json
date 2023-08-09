@@ -51,8 +51,6 @@
             "stylePreprocessorOptions": {
               "includePaths": [
                 "node_modules/@uswds/uswds/packages",
-                "node_modules/@uswds/uswds/dist/fonts",
-                "node_modules/@uswds/uswds/dist/img",
                 "src/assets/uswds/fonts",
                 "src/assets/uswds/img",
                 "src"
