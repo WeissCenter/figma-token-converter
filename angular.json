@@ -34,26 +34,27 @@
               {
                 "glob": "*",
                 "input": "node_modules/@uswds/uswds/dist/fonts",
-                "output": "assets/fonts/"
+                "output": "src/assets/uswds/fonts"
               },
               {
                 "glob": "*",
                 "input": "node_modules/@uswds/uswds/dist/img",
-                "output": "assets/img/"
+                "output": "src/assets/uswds/img"
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/@uswds/uswds/dist/css/uswds.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/@uswds/uswds/dist/js/uswds.min.js"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./node_modules/@uswds/uswds",
-                "./node_modules/@uswds/uswds/packages",
-                "./node_modules/@uswds/uswds/src",
+                "node_modules/@uswds/uswds/packages",
+                "node_modules/@uswds/uswds/dist/fonts",
+                "node_modules/@uswds/uswds/dist/img",
+                "src/assets/uswds/fonts",
+                "src/assets/uswds/img",
                 "src"
               ]
             }

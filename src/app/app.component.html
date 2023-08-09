@@ -3,7 +3,7 @@
   <div class="usa-nav-container">
     <div class="usa-navbar">
       <div class="usa-logo">
-        <em class="usa-logo__text"><a href="/" title="USWDS Token Converter">USWDS Token Converter</a></em>
+        <em class="usa-logo__text"><a href="/" [title]="site_title">{{site_title}}</a></em>
       </div>
       <button type="button" class="usa-menu-btn">Menu</button>
     </div>
@@ -30,19 +30,19 @@
   </div>
 </nav>
 <main id="main-content" class="main-content bg-base-lightest usa-prose">
-  <section class="usa-section margin-0 usa-section--dark">
+  <section class="usa-section margin-0 bg-primary-darker text-base-lightest">
     <div class="grid-container">
       <div class="grid-row grid-gap flex-align-center">
         <div class="tablet:grid-col-4">
-          <h1 class="font-heading-xl margin-top-0 tablet:margin-bottom-0" id="introduction">
+          <h1 class="font-heading-xl text-primary-lighter margin-top-0 tablet:margin-bottom-0" id="introduction">
             Figma tokens to USWDS SCSS
           </h1>
         </div>
         <div class="tablet:grid-col-8 usa-prose">
-          <p class="usa-intro text-light margin-y-0">
+          <p class="usa-intro margin-y-0">
             The structure of the “out-of-the-box” token export from Figma is wildly incompatible with the USWDS system.
           </p>
-          <p class="text-light">
+          <p>
             This tool enables you to take a Figma variable export and convert it into a USWDS compatible SCSS
             file, ready to be added to your project.
           </p>
@@ -171,7 +171,7 @@
         <div class="tablet:grid-col-6">
           <div class="usa-accordion margin-top-2">
             <h3 class="usa-accordion__heading border-1px border-base-lighter">
-              <button type="button" class="usa-accordion__button bg-white" aria-expanded="true"
+              <button type="button" class="usa-accordion__button bg-base-lightest" aria-expanded="true"
                 aria-controls="figma-token-example" aria-label="Expand Figma token example content.">
                 Figma token export example
               </button>
@@ -197,7 +197,7 @@
         <div class="tablet:grid-col-6">
           <div class="usa-accordion margin-top-2">
             <h3 class="usa-accordion__heading border-1px border-base-lighter">
-              <button type="button" class="usa-accordion__button bg-white" aria-expanded="true"
+              <button type="button" class="usa-accordion__button bg-base-lightest" aria-expanded="true"
                 aria-controls="scss-export-example" aria-label="Expand SCSS export example content.">
                 Custom SCSS export example
               </button>

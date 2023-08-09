@@ -9,17 +9,7 @@ export function validObjectValidator(): ValidatorFn {
 
     try {
       const parsedObject = JSON.parse(textareaValue.replace(/'/g, '"'));
-      if (Array.isArray(parsedObject)) {
-        // Check if the array contains valid objects with "fileName" and "body" keys
-        for (const obj of parsedObject) {
-          if (!('fileName' in obj && 'body' in obj)) {
-            return { invalidFormat: true }; // Validation failed due to missing "fileName" or "body"
-          }
-        }
-        return null; // Validation passed
-      } else {
-        return { invalidFormat: true }; // Validation failed due to not being a valid JSON array
-      }
+      return null; 
     } catch (error) {
       return { invalidFormat: true }; // Validation failed due to invalid JSON format
     }
