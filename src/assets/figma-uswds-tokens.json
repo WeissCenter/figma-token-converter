@@ -477,7 +477,7 @@
       },
       "focus-color": {
         "$type": "color",
-        "$value": "{Blue vivid.blue-40v}"
+        "$value": "{Cyan vivid.cyan-30v}"
       },
       "focus-width": {
         "$type": "number",
@@ -644,27 +644,27 @@
   "Primary": {
     "color-primary-light": {
       "$type": "color",
-      "$value": "{Blue.blue-30}"
+      "$value": "{Blue cool.blue-cool-30}"
     },
     "color-primary-lighter": {
       "$type": "color",
-      "$value": "{Blue.blue-10}"
+      "$value": "{Blue cool.blue-cool-10}"
     },
     "color-primary-vivid": {
       "$type": "color",
-      "$value": "{Blue warm vivid.blue-warm-60v}"
+      "$value": "{Blue cool vivid.blue-cool-50v}"
     },
     "color-primary": {
       "$type": "color",
-      "$value": "{Blue vivid.blue-60v}"
+      "$value": "{Blue cool.blue-cool-50}"
     },
     "color-primary-darker": {
       "$type": "color",
-      "$value": "{Blue warm vivid.blue-warm-80v}"
+      "$value": "{Blue cool.blue-cool-70}"
     },
     "color-primary-dark": {
       "$type": "color",
-      "$value": "{Blue warm vivid.blue-warm-70v}"
+      "$value": "{Blue cool.blue-cool-60}"
     }
   },
   "Base": {

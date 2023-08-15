@@ -1,12 +1,17 @@
 @use "uswds-core" with (
   $theme-image-path: "/src/app/assets/uswds/img",
-  $theme-font-path: "/src/app/assets/uswds/fonts"
+  $theme-font-path: "/src/app/assets/uswds/fonts",
+  $theme-show-notifications: false,
+  $theme-font-type-sans: 'public-sans',
+  $theme-grid-container-max-width: 'widescreen',
+  $theme-header-max-width: 'widescreen'
 );
+
+
+
 @forward "uswds";
 
 
 .usa-prose p {
     max-width: 64ex;
 }
-
-
